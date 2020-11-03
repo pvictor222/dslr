@@ -1,2 +1,2 @@
-# dslr
-Datascience X Logistic Regression (42 School Project)
+# dslr - Datascience X Logistic Regression (42 School Project)
+
