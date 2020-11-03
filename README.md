@@ -1,10 +1,10 @@
 # dslr - Datascience X Logistic Regression (42 School Project)
 
-@pvictor, done with Julia language
+Project done by @pvictor using Julia language
 
 *1. Data Analysis*
 - Program: "describe.jl"
-    Goal: Read the dataset and calculate the mean, standard deviation, max, min, etc.
+    Goal: Read the dataset and calculate the mean, standard deviation, max, min, and quartiles for all numerical features.
 
 *2. Data Visualization*
 - Program: "histogram.jl"
