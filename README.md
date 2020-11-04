@@ -23,3 +23,4 @@ Project done by @pvictor using Julia language
 *Bonus*
 - Program: "precision.jl"
     Goal: Evaluate the precision of the predictions made in "logreg_predict.jl"
+- In "describe.jl" : number of missing values per feature
