@@ -2,6 +2,7 @@ using CSV
 using TypedTables
 
 include("src_describe/describe_values.jl")
+include("src_describe/remove_missing.jl")
 
 #=
     1. Check that the file exists and it's a .csv file
@@ -29,6 +30,7 @@ if (length(ARGS) < 1 || ARGS[1] == "")
 elseif (isfile(ARGS[1]) && length(ARGS[1]) > 5 && lowercase(SubString(ARGS[1], length(ARGS[1]) - 3, length(ARGS[1]))) == ".csv")
     csv_file = CSV.read(ARGS[1])
     headers = [header for header in split(readline(ARGS[1]), ',')]
+    filter!(head -> head ≠ "Index", headers)
     numerical_headers = []
     numerical_values = Dict()
     describe_table = Dict()
@@ -36,16 +38,8 @@ elseif (isfile(ARGS[1]) && length(ARGS[1]) > 5 && lowercase(SubString(ARGS[1], l
         if (typeof(csv_file[head][2]) == Float64 || typeof(csv_file[head][2]) == Int64)
             push!(numerical_headers, head)
             numerical_values[head] = [elem for elem in csv_file[head]]
-            missing_elem = []
-            for i in 1:length(numerical_values[head])
-                if (ismissing(numerical_values[head][i]) == true)
-                    push!(missing_elem, i)
-                end
-            end
-            for elem in sort(missing_elem, rev=true)
-                splice!(numerical_values[head], elem)
-            end
             describe_table[head] = []
+            remove_missing(numerical_values, head, describe_table)
             describe_values(numerical_values, head, describe_table)
         end
     end
