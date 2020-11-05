@@ -5,6 +5,10 @@ Project done by @pvictor using Julia language
 *1. Data Analysis*
 - Program: "describe.jl"
     Goal: Read the dataset and calculate the mean, standard deviation, max, min, and quartiles for all numerical features.
+    Bonus: 
+        1. Number of missing elements for each
+        2. Description of the non-numerical values
+        3. Pretty formating
 
 *2. Data Visualization*
 - Program: "histogram.jl"

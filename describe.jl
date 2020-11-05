@@ -14,8 +14,8 @@ include("src_describe/print_table.jl")
 
 BONUS:
 - Missing values
-- Pretty table formatting
 - Description of the other categories (to be done)
+- Pretty table formatting
 =#
 if (length(ARGS) < 1 || ARGS[1] == "")
     println("Please add an argument")
