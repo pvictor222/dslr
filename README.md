@@ -4,7 +4,7 @@
 
 ## 1. Data Analysis
 ### Program: "describe.jl"
-**Goal:** Read the dataset and calculate the mean, standard deviation, max, min, and quartiles for all numerical features.
+**Goal:** Read the dataset and calculate the mean, standard deviation, max, min, and quartiles for all numerical features.\
 **Bonus:** 
 1. Number of missing elements for each
 2. Description of the non-numerical values
@@ -22,5 +22,5 @@
 ### Program: "logreg_train.jl"
 **Goal:** Read the training dataset and train a logistic regression using gradient descent and store the weights of the features in "predict.txt"
 ### Program: "logreg_predict.jl"
-**Goal:** Read the testing dataset and output predictions based on the weights calculated by "logreg_train.jl"
+**Goal:** Read the testing dataset and output predictions based on the weights calculated by "logreg_train.jl"\
 **Bonus:** "precision.jl" to evaluate the precision of the predictions made in "logreg_predict.jl"
