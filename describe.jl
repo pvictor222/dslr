@@ -1,29 +1,21 @@
 using CSV
-using TypedTables
 
 include("src_describe/describe_values.jl")
 include("src_describe/remove_missing.jl")
+include("src_describe/print_table.jl")
 
 #=
     1. Check that the file exists and it's a .csv file
     2. Put all the numerical headers in the array "numerical_headers"
     3. Put all the numerical values in the dictionnary "numerical_values(numerical_headers => [values])"
     4. Remove missing values
-    5. Send 
+    5. Send describe_values() to get the descriptive data and store it in describe_table
+    6. Send to print_table() to get it printed
 
-TODO
-- mean
-- std
-- min
-- Q1
-- Q2 
-- Q3 
-- max
-- number of missing values (bonus)
-- print the type
-- clean the code with more functions in the main
-- Use excel to check that  all is correct
-
+BONUS:
+- Missing values
+- Pretty table formatting
+- Description of the other categories (to be done)
 =#
 if (length(ARGS) < 1 || ARGS[1] == "")
     println("Please add an argument")
@@ -43,7 +35,7 @@ elseif (isfile(ARGS[1]) && length(ARGS[1]) > 5 && lowercase(SubString(ARGS[1], l
             describe_values(numerical_values, head, describe_table)
         end
     end
-    println(describe_table)
+    print_table(numerical_headers, describe_table)
 else
     println("The file does not exist or is not a CSV file")
 end
