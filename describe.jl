@@ -45,7 +45,9 @@ elseif (isfile(ARGS[1]) && length(ARGS[1]) > 5 && lowercase(SubString(ARGS[1], l
             describe_non_num(non_num_values, head, describe_non_num_table)
         end
     end
+    println("Description of the numerical features:")
     print_table(numerical_headers, describe_table)
+    println("Description of the non-numerical features:")
     print_non_num_table(non_num_headers, describe_non_num_table)
 else
     println("The file does not exist or is not a CSV file")

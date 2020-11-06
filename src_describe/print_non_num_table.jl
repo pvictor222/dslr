@@ -11,7 +11,7 @@ function print_non_num_table(numerical_headers, describe_table)
     for elem in numerical_headers
         push!(headers, String(elem))
     end
-    df = DataFrame(Subjects = ["Missing"])
+    df = DataFrame(Subjects = ["Missing", "Count", "Number of different values", "Average occurence of a value", "Most common value", "Most common value occurences"])
     i = 1
     for elem in numerical_headers
         i += 1
