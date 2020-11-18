@@ -7,7 +7,7 @@ showln(x) = (show(x); println())
     We then use PrettyTable.jl to print it nicely
 =#
 function print_table(numerical_headers, describe_table)
-    headers = ["Subjects"]
+    headers = ["Features"]
     for elem in numerical_headers
         push!(headers, String(elem))
     end
