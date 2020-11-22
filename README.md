@@ -1,6 +1,6 @@
 # dslr - Datascience X Logistic Regression (42 School Project)
 
-*Project done by @pvictor using Julia language*
+*Project done by @pvictor using Python*
 
 ## 1. Data Analysis
 ### Program: "describe.jl"
