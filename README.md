@@ -1,4 +1,4 @@
-# dslr - Datascience X Logistic Regression (42 School Project)
+# DSLR - Datascience X Logistic Regression (42 School Project)
 
 *Project done by @pvictor using Python*
 
