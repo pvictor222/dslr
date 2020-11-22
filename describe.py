@@ -15,8 +15,6 @@ if __name__ == '__main__':
         data = read_data(sys.argv[1])
         if (data):
             headers = data.pop(0)
-            print(headers)
-            print(data[0])
             values_dict = get_values(headers, data)
             describe_dict = calc_description(headers, values_dict)
 

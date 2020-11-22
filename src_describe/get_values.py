@@ -10,5 +10,4 @@ def get_values(headers, data):
                 temp1 = headers.index(head)
                 temp2 = elem[temp1]
                 values_dict[head].append(temp2)
-    print(values_dict)
     return(values_dict)
