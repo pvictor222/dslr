@@ -9,6 +9,7 @@ from src_describe.print_table import print_table
     1. Read the data
     2. Separate numerical headers from non-numerical headers 
     3. 
+    
 """
 if __name__ == '__main__':
     if (len(sys.argv) > 1):
@@ -17,7 +18,8 @@ if __name__ == '__main__':
             headers = data.pop(0)
             values_dict = get_values(headers, data)
             describe_dict = calc_description(headers, values_dict)
-
+            print(describe_dict[0])
+            print(describe_dict[1])
             # print_table()
     else:
         print("Please provide the path of the dataset as an argument")
