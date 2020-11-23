@@ -7,6 +7,7 @@ from src_describe.quartiles import q1_value
 from src_describe.quartiles import q2_value
 from src_describe.quartiles import q3_value
 from src_describe.max_values import max_values
+from src_describe.common_values import common_values
 
 """
     Goal: calculate all the description values
@@ -52,4 +53,9 @@ def calc_description(headers, values_dict):
             describe_dict_num.pop(head)
             describe_dict_non_num[head].append(count_values(values_dict[head]))
             describe_dict_non_num[head].append(missing_values[head])
+            describe_dict_non_num[head].append(len(set(values_dict[head])))
+            describe_dict_non_num[head].append(round(describe_dict_non_num[head][0] / describe_dict_non_num[head][2], 2))
+            most_common_values = common_values(values_dict[head])
+            describe_dict_non_num[head].append(most_common_values[0])
+            describe_dict_non_num[head].append(most_common_values[1])
     return (describe_dict_num, describe_dict_non_num)
