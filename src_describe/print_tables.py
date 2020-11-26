@@ -5,10 +5,6 @@ def print_tables(values):
     non_num_values = values[1]
     num_headers = values[2]
     non_num_headers = values[3]
-    print(num_headers)
-    print(num_values)
-    print(non_num_headers)
-    print(non_num_values)
     fig_num = go.Figure(data=[go.Table(header=dict(values=num_headers,
                                 line_color='darkslategray',
                                 fill=dict(color=['darkslategray', 'royalblue']),
