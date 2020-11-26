@@ -11,21 +11,23 @@ def print_tables(values):
     print(non_num_values)
     fig_num = go.Figure(data=[go.Table(header=dict(values=num_headers,
                                 line_color='darkslategray',
-                                fill_color='lightskyblue',
-                                align='left'),
+                                fill=dict(color=['darkslategray', 'royalblue']),
+                                font=dict(color='white', size=12),
+                                align='center'),
                         cells=dict(values=num_values,
                                 line_color='darkslategray',
-                                fill_color='lightcyan',
-                                align='left'),
+                                fill=dict(color=['lightcyan', 'white']),
+                                align='center'),
                         )])
     fig_non_num = go.Figure(data=[go.Table(header=dict(values=non_num_headers,
                                 line_color='darkslategray',
-                                fill_color='lightskyblue',
-                                align='left'),
+                                fill=dict(color=['darkslategray', 'royalblue']),
+                                font=dict(color='white', size=12),
+                                align='center'),
                         cells=dict(values=non_num_values,
                                 line_color='darkslategray',
-                                fill_color='lightcyan',
-                                align='left')
+                                fill=dict(color=['lightcyan', 'white']),
+                                align='center')
                         )])
     fig_num.show()
     fig_non_num.show()

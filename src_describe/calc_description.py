@@ -40,32 +40,35 @@ def calc_description(headers, values_dict):
     count_non_num = 0
     non_num_headers = []
     for head in headers:
-        try:
-            (float(values_dict[head][1]) or int(values_dict[head][1]))
-            describe_dict_num.append([])
-            num_headers.append(head)
-            describe_dict_num[count_num].append(count_values(values_dict[head]))
-            describe_dict_num[count_num].append(missing_values[head])
-            values_sum = sum_values(values_dict[head])
-            describe_dict_num[count_num].append(round(values_sum/describe_dict_num[count_num][0], 2))
-            describe_dict_num[count_num].append(standard_deviation(values_dict[head], describe_dict_num[count_num][2], describe_dict_num[count_num][0]))
-            describe_dict_num[count_num].append(min_values(values_dict[head]))
-            describe_dict_num[count_num].append(q1_value(values_dict[head]))
-            describe_dict_num[count_num].append(q2_value(values_dict[head]))
-            describe_dict_num[count_num].append(q3_value(values_dict[head]))
-            describe_dict_num[count_num].append(max_values(values_dict[head]))
-            count_num += 1
-        except ValueError:
-            describe_dict_non_num.append([])
-            non_num_headers.append(head)
-            describe_dict_non_num[count_non_num].append(count_values(values_dict[head]))
-            describe_dict_non_num[count_non_num].append(missing_values[head])
-            describe_dict_non_num[count_non_num].append(len(set(values_dict[head])))
-            describe_dict_non_num[count_non_num].append(round(describe_dict_non_num[count_non_num][0] / describe_dict_non_num[count_non_num][2], 2))
-            most_common_values = common_values(values_dict[head])
-            describe_dict_non_num[count_non_num].append(most_common_values[0])
-            describe_dict_non_num[count_non_num].append(most_common_values[1])
-            count_non_num += 1
-    describe_dict_num.insert(0, ["Count", "Missing values", "Mean", "Standard Deviation", "Min", "25%", "50%", "75%", "Max"])
+        if head != "Index":
+            try:
+                (float(values_dict[head][1]) or int(values_dict[head][1]))
+                describe_dict_num.append([])
+                num_headers.append(head)
+                describe_dict_num[count_num].append(count_values(values_dict[head]))
+                describe_dict_num[count_num].append(missing_values[head])
+                values_sum = sum_values(values_dict[head])
+                describe_dict_num[count_num].append(round(values_sum/describe_dict_num[count_num][0], 2))
+                describe_dict_num[count_num].append(standard_deviation(values_dict[head], describe_dict_num[count_num][2], describe_dict_num[count_num][0]))
+                describe_dict_num[count_num].append(min_values(values_dict[head]))
+                describe_dict_num[count_num].append(q1_value(values_dict[head]))
+                describe_dict_num[count_num].append(q2_value(values_dict[head]))
+                describe_dict_num[count_num].append(q3_value(values_dict[head]))
+                describe_dict_num[count_num].append(max_values(values_dict[head]))
+                count_num += 1
+            except ValueError:
+                describe_dict_non_num.append([])
+                non_num_headers.append(head)
+                describe_dict_non_num[count_non_num].append(count_values(values_dict[head]))
+                describe_dict_non_num[count_non_num].append(missing_values[head])
+                describe_dict_non_num[count_non_num].append(len(set(values_dict[head])))
+                describe_dict_non_num[count_non_num].append(round(describe_dict_non_num[count_non_num][0] / describe_dict_non_num[count_non_num][2], 2))
+                most_common_values = common_values(values_dict[head])
+                describe_dict_non_num[count_non_num].append(most_common_values[0])
+                describe_dict_non_num[count_non_num].append(most_common_values[1])
+                count_non_num += 1
+    describe_dict_num.insert(0, ["Count", "Missing values", "Mean", "Std", "Min", "25%", "50%", "75%", "Max"])
     describe_dict_non_num.insert(0, ["Count", "Missing values", "Number of different values", "Average occurence of a value", "Most common value", "Occurences of the most common value"])
+    non_num_headers.insert(0, "Subjects")
+    num_headers.insert(0, "Subjects")
     return (describe_dict_num, describe_dict_non_num, num_headers, non_num_headers)
