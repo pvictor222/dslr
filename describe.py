@@ -12,7 +12,7 @@ from src_describe.print_tables import print_tables
     4. Print using plotly
 """
 if __name__ == '__main__':
-    if (len(sys.argv) > 1):
+    if (len(sys.argv) > 1 and sys.argv[1].lower().endswith('.csv')):
         try:
             data = read_data(sys.argv[1])
             if (data):
@@ -24,3 +24,5 @@ if __name__ == '__main__':
                 print("Please provide the path of the dataset as an argument")
         except:
             print("Please provide the path of the dataset as an argument")
+    else:
+        print("Please provide the path of the dataset as an argument")
