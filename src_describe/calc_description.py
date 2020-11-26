@@ -66,4 +66,6 @@ def calc_description(headers, values_dict):
             describe_dict_non_num[count_non_num].append(most_common_values[0])
             describe_dict_non_num[count_non_num].append(most_common_values[1])
             count_non_num += 1
+    describe_dict_num.insert(0, ["Count", "Missing values", "Mean", "Standard Deviation", "Min", "25%", "50%", "75%", "Max"])
+    describe_dict_non_num.insert(0, ["Count", "Missing values", "Number of different values", "Average occurence of a value", "Most common value", "Occurences of the most common value"])
     return (describe_dict_num, describe_dict_non_num, num_headers, non_num_headers)
