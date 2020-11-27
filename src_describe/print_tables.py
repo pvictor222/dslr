@@ -15,6 +15,9 @@ def print_tables(values):
                                 fill=dict(color=['lightcyan', 'white']),
                                 align='center'),
                         )])
+    fig_num.update_layout(
+        title="Numerical values",
+    )
     fig_non_num = go.Figure(data=[go.Table(header=dict(values=non_num_headers,
                                 line_color='darkslategray',
                                 fill=dict(color=['darkslategray', 'royalblue']),
@@ -25,5 +28,8 @@ def print_tables(values):
                                 fill=dict(color=['lightcyan', 'white']),
                                 align='center')
                         )])
+    fig_non_num.update_layout(
+        title="Non-numerical values",
+    )    
     fig_num.show()
     fig_non_num.show()
