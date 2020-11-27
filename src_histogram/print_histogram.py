@@ -20,7 +20,7 @@ def print_histogram(values):
     for head in num_headers:
         for house in ["Gryffindor", "Ravenclaw", "Hufflepuff", "Slytherin"]:
             temp_trace = go.Histogram(x=values[house][head],
-                                        nbinsx=20,
+                                        nbinsx=10,
                                         marker = dict(color=color_table[house]),
                                         name=house,
                                         legendgroup=head)

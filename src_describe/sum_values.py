@@ -3,6 +3,7 @@
 """
 
 def sum_values(values):
+    print(values)
     total = 0
     for value in values:
         total += float(value)
