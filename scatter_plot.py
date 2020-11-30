@@ -17,7 +17,7 @@ if __name__ == '__main__':
                 headers = data.pop(0)
                 values_dict = get_values(headers, data)
                 values_dict = remove_missing_rows(values_dict)
-                print(values_dict)
+                # print(values_dict)
                 pearson_cor = calc_pearson_cor(values_dict)
                 values_by_house = split_by_house(headers, values_dict)
                 print_scatter_plot(values_by_house)

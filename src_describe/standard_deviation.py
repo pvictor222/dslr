@@ -6,5 +6,6 @@ import math
 def standard_deviation(data, mean, count):
     variance = 0
     for elem in data:
-        variance += (float(elem) - mean) ** 2 
+        if elem != "":
+            variance += (float(elem) - mean) ** 2
     return round(math.sqrt(variance / (count - 1)), 2)
