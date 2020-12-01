@@ -26,5 +26,13 @@ def print_pair_plot(values):
     # fig = px.scatter_matrix(pd.DataFrame(values),
     #     dimensions=num_headers,
     #     color="species")
-    fig = ff.create_scatterplotmatrix(pd.DataFrame(values), height=2000, width=2000)
+    # fig = ff.create_scatterplotmatrix(pd.DataFrame(values["Slytherin"]), height=2000, width=2000, color="Hogwarts House")
+    # fig.show()
+
+    fig = px.scatter_matrix(pd.DataFrame(values),
+                            height=2000,
+                            width=2000,
+                            color="Hogwarts House",
+                            title="Scatter matrix"
+                            )
     fig.show()
