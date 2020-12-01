@@ -14,7 +14,7 @@
 ### Program: "histogram.jl"
 **Goal:** Create a histogram the repartition of grades among the houses for each course
 ### Program: "scatter_plot.jl"
-**Goal:** Create a scatter plot of the features
+**Goal:** Determine the 2 features that are the most closely related and create a scatter plot of these 2 features
 ### Program: "pair_plot.jl"
 **Goal:** Create a pair plot to determine which features to use for the logistic regression
 
