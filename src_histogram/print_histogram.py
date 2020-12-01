@@ -3,6 +3,14 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from src_histogram.get_num_headers import get_num_headers
 
+"""
+    GOAL: print the histograms of each subject, by house.
+    1. Get the number of rows and create the figure
+    2. For each subject, plot the 4 houses
+    3. Add title
+    4. Display
+"""
+
 def print_histogram(values):
     num_headers = get_num_headers(values["Slytherin"])
     nb_columns = 3

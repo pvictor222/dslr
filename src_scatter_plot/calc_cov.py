@@ -4,6 +4,7 @@ def calc_sum(values):
         if value != "":
             total += float(value)
     return (total)
+
 """
     Returns the covariance of 2 headers
     COV(X,Y) = somme[(X - E[X])(Y - E[Y])] / N
