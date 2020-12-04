@@ -12,8 +12,11 @@ def read_coeff(file):
             print("Error while reading the coeff file")
             return (False)
         temp = f.read().split('\n')
-        data = [x.split(',') for x in temp]
-        data.pop()
+        temp.pop()
+        print(temp)
+        temp = temp[0].split(";")
+        data = [x.split(':') for x in temp]
+        print(data)
         coeff = {elem[0]: elem[1] for elem in data}
         return (coeff)
     else:
