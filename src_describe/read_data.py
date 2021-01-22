@@ -12,6 +12,7 @@ def read_data(csv):
             print("Error while reading the csv file")
             return (False)
         temp = f.read().split('\n')
+        temp.pop()
         data = [x.split(',') for x in temp]
         return (data)
     else:

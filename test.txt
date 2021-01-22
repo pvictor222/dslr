@@ -1,0 +1,2 @@
+Potions:42;Astronomy:22
+
