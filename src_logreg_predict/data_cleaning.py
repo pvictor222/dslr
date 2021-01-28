@@ -1,8 +1,7 @@
 """
     To do : 
-    - Normalization
     - Removing names
-    - Replace left/right 1/0
+    - Replace left/right ==> 1/0
     - Date of birth : split in three variables --> day, month, year
 """
 
@@ -21,4 +20,3 @@ def data_cleaning(data):
         i.append(birthday[0])
         i.append(birthday[1])
         i.append(birthday[2])
-        print(i)

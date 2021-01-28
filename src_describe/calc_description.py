@@ -40,7 +40,7 @@ def calc_description(headers, values_dict):
     count_non_num = 0
     non_num_headers = []
     for head in headers:
-        if head != "Index":
+        if head != "Index" and values_dict[head]:
             try:
                 (float(values_dict[head][1]) or int(values_dict[head][1]))
                 describe_dict_num.append([])

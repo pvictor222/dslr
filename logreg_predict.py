@@ -4,6 +4,7 @@ from src_describe.get_values import get_values
 from src_logreg_predict.read_coeff import read_coeff
 from src_logreg_predict.data_cleaning import data_cleaning
 from src_logreg_predict.predict_house import predict_house
+from src_logreg_predict.data_normalization import data_normalization
 
 
 """
@@ -17,6 +18,10 @@ if __name__ == '__main__':
             if (data):
                 if (coeff):
                     data_cleaning(data)
+                    headers = data.pop(0)
+                    headers.pop(2)
+                    headers.pop(2)
+                    data_normalization(data, headers)
                     # predict_house(data, coeff)
                 else:
                     print("Coefficients are invalid")
