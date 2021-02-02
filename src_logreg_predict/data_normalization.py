@@ -9,7 +9,6 @@ from src_logreg_predict.min_max_normalization import min_max_normalization
 
 def data_normalization(data, headers):
     values_dict = get_values(headers, data)
-    print (values_dict["Best Hand"])
     describe_dict = calc_description(headers, values_dict)
     describe_dict_num = compile_describe_num(describe_dict)
     normalized_data = min_max_normalization(describe_dict_num, data)
