@@ -4,4 +4,8 @@
 
 """
 def min_max_normalization(describe_dict, data):
-    print("to be done")
+    print("MIN MAX START")
+    for head in data:
+        print(head)
+    print("MIN MAX END")
+    

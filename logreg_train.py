@@ -7,8 +7,9 @@ from src_logreg_predict.predict_house import predict_house
 from src_logreg_predict.data_normalization import data_normalization
 
 """
-    GOAL: 
+
 """
+
 if __name__ == '__main__':
     if (len(sys.argv) > 2 and sys.argv[1].lower().endswith('.csv') and sys.argv[2].lower().endswith('.txt')):
         try:
