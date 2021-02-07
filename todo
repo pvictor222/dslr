@@ -1,8 +1,8 @@
 ** logreg_predict **
-- normalization ? Pas sur, pas forcément si on n'envoit pas des coefficients normalisés
+- () normalization ? Pas sur, pas forcément si on n'envoit pas des coefficients normalisés
 
 ** logreg_train **
--
+- () normalization
 
 ** BONUS **
-- accuracy_score.py: programme de vérification des prédiction et calcul du accuracy score (Scikit-Learn), et < ou > à 98%
+- (DONE) accuracy_score.py: programme de vérification des prédiction et calcul du accuracy score (Scikit-Learn), et < ou > à 98%
