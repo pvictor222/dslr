@@ -3,28 +3,26 @@ from src_describe.read_data import read_data
 from src_describe.get_values import get_values
 from src_logreg_predict.read_coeff import read_coeff
 from src_logreg_predict.data_cleaning import data_cleaning
-from src_logreg_predict.predict_house import predict_house
 from src_logreg_predict.data_normalization import data_normalization
+from src_logreg_train.train_model import train_model
 
 """
 
 """
 
 if __name__ == '__main__':
-    if (len(sys.argv) > 2 and sys.argv[1].lower().endswith('.csv') and sys.argv[2].lower().endswith('.txt')):
+    if (len(sys.argv) > 1 and sys.argv[1].lower().endswith('.csv')):
         try:
             data = read_data(sys.argv[1])
-            coeff = read_coeff(sys.argv[2])
             if (data):
-                if (coeff):
-                    data_cleaning(data)
-                    headers = data.pop(0)
-                    headers.pop(2)
-                    headers.pop(2)
-                    data_normalization(data, headers)
-                    # predict_house(data, coeff)
-                else:
-                    print("Coefficients are invalid")
+                data_cleaning(data)
+                headers = data.pop(0)
+                headers.pop(2)
+                headers.pop(2)
+                print(headers)
+                data_normalization(data, headers)
+                #todo: training
+                train_model(data, headers)
             else:
                 print("Please provide the path of the dataset and the weights of the features as arguments")
         except ValueError:
