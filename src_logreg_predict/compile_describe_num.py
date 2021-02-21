@@ -1,6 +1,5 @@
 """
-
-
+    For each header (besides index), get the min and max values in a dict
 """
 def compile_describe_num(describe_dict):
     describe_dict_num = describe_dict[0]

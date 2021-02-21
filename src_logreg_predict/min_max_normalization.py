@@ -4,8 +4,8 @@
 
 """
 def min_max_normalization(describe_dict, data):
-    print("MIN MAX START")
-    for head in data:
-        print(head)
-    print("MIN MAX END")
-    
+    headers = list(describe_dict.keys())
+    for line in data:
+        for elem in range(0, len(line[3:])):
+            if (line[elem + 3] != ''):
+                line[elem + 3] = (float(line[elem + 3]) - describe_dict[headers[elem]]["min"]) / (describe_dict[headers[elem]]["max"] - describe_dict[headers[elem]]["min"])
