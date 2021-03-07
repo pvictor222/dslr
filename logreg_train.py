@@ -11,28 +11,30 @@ from src_logreg_train.train_model import train_model
         -   Removing First and Last names
         -   Replace Best Hand by 0/1 values
         -   Split date of birth in 3 variables: Day, Month and Year
-    2.  Normalize the data: min-max normalization
+    2.  Normalize the data: 
+        -   Replace missing values by mean value
+        -   Min-max normalization
     3.  Training:
-        -   
+        -
+        -   De-normalize the coefficients
+        -   Print the coefficients
 """
 
 if __name__ == '__main__':
     if (len(sys.argv) > 1 and sys.argv[1].lower().endswith('.csv')):
-        # try:
-        data = read_data(sys.argv[1])
-        if (data):
-            data_cleaning(data)
-            headers = data.pop(0)
-            headers.pop(2)
-            headers.pop(2)
-            min_max_dict = data_normalization(data, headers)
-            #todo: training
-            train_model(data, headers)
-            # print (data)
-            # print(min_max_dict)
-        else:
-            print("Please provide the path of the dataset and the weights of the features as arguments")
-        # except ValueError:
-        #     print("Please provide the path of the dataset and the weights of the features as arguments")
+        try:
+            data = read_data(sys.argv[1])
+            if (data):
+                data_cleaning(data)
+                headers = data.pop(0)
+                headers.pop(2)
+                headers.pop(2)
+                min_max_dict = data_normalization(data, headers)
+                #todo: training
+                train_model(data, headers)
+            else:
+                print("An error has appeared. Please make sure the data in arguments is correct")
+        except ValueError:
+            print("An error has appeared. Please make sure the data in arguments is correct")
     else:
-        print("Please provide the path of the dataset and the weights of the features as arguments")
+        print("An error has appeared. Please make sure the data in arguments is correct")
