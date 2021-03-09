@@ -15,6 +15,17 @@ def loss(h, y):
 def sigmoid(z):
     return (1 / (1 + np.exp(-z)))
 
+"""
+    Linear predictor function or logit function
+    1.  Creating array for each feature set
+    2.  For each feature set : calculate the logit score for each feature set, then flattens the logit vector
+"""
+def linearPredict(featureMat, weights, biases):
+    logitScores = np.array([np.empy([4]) for i in range(featureMat.shape[0])])
+    for i in range(featureMat.shape[0]):
+        logitScores[i] = (weights.dot(featureMat[i].reshape(-1, 1)) + biases).reshape(-1)
+    return logitScores
+
 def train_model(data, headers):
     
     
@@ -32,17 +43,31 @@ def train_model(data, headers):
 
     # 1/ Define the target and features arrays
     target = [elem[1] for elem in data]
-    features = [[elem[0], elem[2], elem[3],
+    features = df[[elem[0], elem[2], elem[3],
                 elem[4], elem[5], elem[6],
                 elem[7], elem[8], elem[9],
                 elem[10], elem[11], elem[12],
                 elem[13], elem[14], elem[15],
                 elem[16], elem[17], elem[18],
                 elem[19]] for elem in data]
+    features = features.to_numpy()
+    print(features[0])
 
-    # 2/
-    # 3/
-    # 4/
+    # 2/ Creating random weights and biases for the model
+    weights = np.random.rand(4, 19)
+    print("weights")
+    print(weights)
+    biases = np.random.rand(5,1)
+    print("biases")
+    print(biases)
+
+    # 3/ Defining the linear predictor function
+    # linearPredict(feztureMat, weights, biases)
+
+    # 4/ Test the function for the features matrix
+    print("logitTest")
+    logitTest = linearPredict(features, weights, biases)
+    print(logitTest.shape)
     # 5/
     # 6/
     # 7/ Print weights
