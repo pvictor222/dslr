@@ -1,10 +1,15 @@
 ** logreg_predict **
-- () normalization ? Pas sur, pas forcément si on n'envoit pas des coefficients normalisés
+- ()        Normalization ? Pas sur, pas forcément si on n'envoit pas des coefficients normalisés
 
 ** logreg_train **
-- ()    Try with https://teddykoker.com/2019/06/multi-class-classification-with-logistic-regression-in-python/
-            multinomial + gradient descent
-- (OK)  normalization
+- ()        Try with https://teddykoker.com/2019/06/multi-class-classification-with-logistic-regression-in-python/
+                multinomial + gradient descent
+                One vs rest strategy : https://en.wikipedia.org/wiki/Multiclass_classification#One-vs.-rest
+- (OK)      Normalization
+
+** all files **
+- ()        Comments
+- ()        Clean the code
 
 ** BONUS **
-- (DONE) accuracy_score.py: programme de vérification des prédiction et calcul du accuracy score (Scikit-Learn), et < ou > à 98%
+- (DONE)    Accuracy_score.py: programme de vérification des prédiction et calcul du accuracy score (Scikit-Learn), et < ou > à 98%

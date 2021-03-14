@@ -2,8 +2,12 @@ import random # used for mock values ==> to delete
 import numpy as np
 
 """
-    Multinomial Logistic Regression
-    https://towardsdatascience.com/ml-from-scratch-multinomial-logistic-regression-6dda9cbacf9d
+    Multinomial Logistic Regression with gradient descent
+    -   https://teddykoker.com/2019/06/multi-class-classification-with-logistic-regression-in-python/
+        -   One vs rest strategy : https://en.wikipedia.org/wiki/Multiclass_classification#One-vs.-rest :
+            Replace the "House" parameter by 4 parameters, one for each house, with values 1 or 0
+        -   Cost function: using the cross enthropy cost function (~ similar to mean squared error)
+
     - Mock values for prediction testing
     -   De-normalize the coefficients
     -   Printing the values
@@ -13,18 +17,70 @@ def loss(h, y):
     return (-y * np.log(h) - (1 - y) * np.log(1 - h)).mean()
 
 def sigmoid(z):
-    return (1 / (1 + np.exp(-z)))
+    return 1 / (1 + np.exp(-z))
+
+def cost(theta, x, y):
+    """
+        Cost = cross enthropy cost function
+        Gradient = #
+        Returns costs and gradient
+    """
+    h = sigmoid(x @ theta)
+    m = len(y)
+    cost = 1 / m * np.sum(
+        -y * np.log(h) - (1 - y) * np.log(1 - h)
+    )
+    grad = 1 / m * ((y - h) @ x)
+    return cost, grad
+
+def fit(x, y, max_iter=1500, alpha=0.01):
+    """
+        1.  Preparing the variables
+            a.  Insert a column in the x matrix (filled with '1')
+            b.  houses = A list of all the possible values of y
+            c.  thetas = A list which will contain the weights (initialized empty)
+            d.  costs = A list which fill contain the costs of all the iterations (initialized with zeros)
+        2.  
+
+    """
+    x = np.insert(x, 0, 1, axis=1)
+    houses = np.unique(y)
+    thetas = []
+    costs = np.zeros(max_iter)
+
+    
+
+def train_model(data, headers):
+    """
+        1.  y = House parameter
+        2.  x = data without the Index and House parameters
+        3.  Call the fit function
+        4.  Outputs the weights determined in the fit function
+    """
+    y = [elem[1] for elem in data]
+    x = data
+    for elem in x:
+        elem.pop(0)
+        elem.pop(0)
+    fit(x, y)
+    print("In train model : tbd")
+
+#*OLD : softmax - https://towardsdatascience.com/ml-from-scratch-multinomial-logistic-regression-6dda9cbacf9d
 
 """
     Linear predictor function or logit function
     1.  Creating array for each feature set
     2.  For each feature set : calculate the logit score for each feature set, then flattens the logit vector
 """
+"""
 def linearPredict(featureMat, weights, biases):
     logitScores = np.array([np.empy([4]) for i in range(featureMat.shape[0])])
     for i in range(featureMat.shape[0]):
         logitScores[i] = (weights.dot(featureMat[i].reshape(-1, 1)) + biases).reshape(-1)
     return logitScores
+"""
+
+"""
 
 def train_model(data, headers):
     
@@ -81,3 +137,4 @@ def train_model(data, headers):
         f = open("coeffs.csv", "a")
         f.write(coeff + ":" + str(coeffs[coeff]) + "\n")
         f.close()
+"""
