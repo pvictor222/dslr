@@ -77,13 +77,14 @@ def train_model(data, headers):
         elem.pop(0)
     thetas, houses, costs = fit(x, y)
     f = open("coeffs", "w")
-    f.write("")
+    for house in houses:
+        f.write(house)
+        f.write(";")
     f.close()
     f = open("coeffs", "a")
     for theta in thetas:
+        f.write('\n')
         for i in theta:
-            
             f.write(str(i))
             f.write(";")
-        f.write('\n')
     f.close()

@@ -1,8 +1,9 @@
 ** logreg_predict **
-- ()        Normalization ? Pas sur, pas forcément si on n'envoit pas des coefficients normalisés
+- ()        Normalization
+- ()        Prediction
 
 ** logreg_train **
-- ()        Try with https://teddykoker.com/2019/06/multi-class-classification-with-logistic-regression-in-python/
+- (OK)      Try with https://teddykoker.com/2019/06/multi-class-classification-with-logistic-regression-in-python/
                 multinomial + gradient descent
                 One vs rest strategy : https://en.wikipedia.org/wiki/Multiclass_classification#One-vs.-rest
 - (OK)      Normalization

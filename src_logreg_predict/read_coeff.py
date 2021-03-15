@@ -2,7 +2,7 @@ import os
 
 """
     Check if file exists and permissions are ok
-    Read the coeff and returns them in a dictionnary
+    Read the coeff and returns them in a dictionnary, with the Houses as keys
 """
 def read_coeff(file):
     if (os.access(file, os.R_OK)):
@@ -12,13 +12,15 @@ def read_coeff(file):
             print("Error while reading the coeff file")
             return (False)
         temp = f.read().split('\n')
-        temp.pop()
-        print(temp)
-        temp = temp[0].split(";")
-        data = [x.split(':') for x in temp]
-        print(data)
-        coeff = {elem[0]: elem[1] for elem in data}
-        return (coeff)
+        houses = (temp.pop(0)).split(";")
+        houses = list(filter(None, houses))
+        data = [list(filter(None, x.split(';'))) for x in temp]
+        weights_dict = {house: [] for house in houses}
+        i = 0
+        for elem in data:
+            weights_dict[houses[i]] = elem
+            i += 1
+        return (weights_dict)
     else:
         print("Error while reading the coeff file")
         return (False)
