@@ -1,5 +1,5 @@
-import random # used for mock values ==> to delete
 import numpy as np
+from src_logreg_train.sigmoid import sigmoid
 
 """
     Multinomial Logistic Regression with gradient descent
@@ -7,14 +7,7 @@ import numpy as np
         -   One vs rest strategy : https://en.wikipedia.org/wiki/Multiclass_classification#One-vs.-rest :
             Replace the "House" parameter by 4 parameters, one for each house, with values 1 or 0
         -   Cost function: using the cross enthropy cost function (~ similar to mean squared error)
-
-    - Mock values for prediction testing
-    -   De-normalize the coefficients
-    -   Printing the values
 """
-
-def sigmoid(z):
-    return 1 / (1 + np.exp(-z))
 
 def cost(theta, x, y):
     """

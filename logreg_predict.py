@@ -13,15 +13,15 @@ if __name__ == '__main__':
     if (len(sys.argv) > 2 and sys.argv[1].lower().endswith('.csv')):
         try:
             data = read_data(sys.argv[1])
-            coeff = read_coeff(sys.argv[2])
+            weights_dict = read_coeff(sys.argv[2])
             if (data):
-                if (coeff):
+                if (weights_dict):
                     data_cleaning(data)
                     headers = data.pop(0)
                     headers.pop(2)
                     headers.pop(2)
                     data_normalization(data, headers)
-                    # predict_house(data, coeff)
+                    predict_house(data, weights_dict)
                 else:
                     print("Coefficients are invalid")
             else:
