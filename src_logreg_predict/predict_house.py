@@ -13,12 +13,17 @@ def predict(houses, weights_dict, x):
         thetas.append(np.array(weights_dict[elem]))
     for line in thetas:
         line = [float(x) for x in line]
-    # print(thetas)
     x = np.array(x)
     x = np.insert(x, 0, 1, axis=1)
-    # print(thetas)
+    new_thetas = np.empty([len(thetas), len(thetas[0])], dtype=float)
+    for i in range(len(new_thetas)):
+        for j in range(i):
+            new_thetas[i][j] = float(thetas[i][j])
+            print("new_thetas["+str(i)+"]["+str(j)+"] = " + str(new_thetas[i][j]))
+    print("**** NEW_THETAS ****")
+    print(new_thetas)
     predictions = [np.argmax(
-        [sigmoid(np.dot(elem, theta)) for theta in thetas]
+        [sigmoid(np.dot(elem, theta)) for theta in new_thetas]
     ) for elem in x]
     return [houses[pred] for pred in predictions]
 

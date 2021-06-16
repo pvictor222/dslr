@@ -1,8 +1,7 @@
 """
     Min-max normalization
-        If empty: normalized_value = (value - min) / (max - min)
-        Else: normalized_value = (mean - min) / (max - min)
-
+        If not empty: normalized_value = (value - min) / (max - min)
+        If empty: normalized_value = (mean - min) / (max - min)
 """
 def min_max_normalization(describe_dict, data):
     headers = list(describe_dict.keys())

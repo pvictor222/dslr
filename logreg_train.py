@@ -5,7 +5,8 @@ from src_logreg_predict.data_normalization import data_normalization
 from src_logreg_train.train_model import train_model
 
 """
-    1.  Cleaning the data:
+    0.  Read the data
+    1.  Clean the data:
         -   Removing First and Last names
         -   Replace Best Hand by 0/1 values
         -   Split date of birth in 3 variables: Day, Month and Year
