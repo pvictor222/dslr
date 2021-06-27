@@ -6,7 +6,9 @@ from src_logreg_train.sigmoid import sigmoid
 
 def predict(houses, weights_dict, x):
     """
-
+        1.  Convert weights and x to np arrays
+        2.  Convert to floats
+        3.  
     """
     thetas = []
     for elem in weights_dict:

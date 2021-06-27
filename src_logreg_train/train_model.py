@@ -1,5 +1,6 @@
 import numpy as np
 from src_logreg_train.sigmoid import sigmoid
+from matplotlib import pyplot as plt
 
 """
     Multinomial Logistic Regression with gradient descent
@@ -12,7 +13,6 @@ from src_logreg_train.sigmoid import sigmoid
 def cost(theta, x, y):
     """
         Cost = cross enthropy cost function
-        Gradient = #
         Returns costs and gradient
     """
     h = sigmoid(np.dot(x, theta))
@@ -23,7 +23,7 @@ def cost(theta, x, y):
     grad = 1 / m * (np.dot((y - h), x))
     return cost, grad
 
-def fit(x, y, max_iter=1500, alpha=0.01):
+def fit(x, y, max_iter=1000, alpha=0.5):
     """
         1.  Preparing the variables
             a.  Insert a column in the x matrix (filled with '1')
@@ -38,6 +38,7 @@ def fit(x, y, max_iter=1500, alpha=0.01):
                     -   Calculate the cost and gradient
                     -   Update theta
                 -   Add theta to thetas
+        --> Return thetas, houses and costs
 
     """
     x = np.insert(x, 0, 1, axis=1)
@@ -53,13 +54,14 @@ def fit(x, y, max_iter=1500, alpha=0.01):
             costs[i], grad = cost(theta, np.array(x), binary_y)
             theta += alpha * grad
         thetas.append(theta)
+        print(costs[i])
     return thetas, houses, costs
 
 def train_model(data, headers):
     """
         1.  y = House parameter
         2.  x = data without the Index, Birthday and House parameters
-        3.  Call the fit function
+        3.  Call the fit function to get thetas, houses and costs
         4.  Outputs the weights determined in the fit function
     """
     y = [elem[1] for elem in data]
@@ -80,4 +82,9 @@ def train_model(data, headers):
         for i in theta:
             f.write(str(i))
             f.write(";")
+    plt.plot(costs)
+    plt.title("Costs function")
+    plt.ylabel("Cost")
+    plt.xlabel("Number of iterations")
+    plt.show()
     f.close()
