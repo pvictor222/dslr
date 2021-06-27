@@ -42,17 +42,11 @@ def predict_house(data, weights_dict):
         elem.pop(0)
     houses = list(weights_dict.keys())
     predictions = predict(houses, weights_dict, x)
-    print(predictions)
-    # thetas, houses, costs = fit(x, y)
-    # f = open("coeffs", "w")
-    # for house in houses:
-    #     f.write(house)
-    #     f.write(";")
-    # f.close()
-    # f = open("coeffs", "a")
-    # for theta in thetas:
-    #     f.write('\n')
-    #     for i in theta:
-    #         f.write(str(i))
-    #         f.write(";")
-    # f.close()
+    f = open("houses.csv", "w")
+    f.write("Index,Hogwarts House")
+    for i in range(1, len(predictions)):
+        f.write('\n')
+        f.write(str(i))
+        f.write(',')
+        f.write(predictions[i])
+    f.close
