@@ -24,12 +24,17 @@ if __name__ == '__main__':
         try:
             data = read_data(sys.argv[1])
             if (data):
+                print_cost_function = input("Do you want to print the cost function? (Y/N)\n")
+                if print_cost_function.lower() == "y":
+                    bonus = {"print_cost_fonction" : 1}
+                else:
+                    bonus = {"print_cost_fonction" : 0}
                 data_cleaning(data)
                 headers = data.pop(0)
                 headers.pop(2)
                 headers.pop(2)
                 min_max_dict = data_normalization(data, headers)
-                train_model(data, headers)
+                train_model(data, headers, bonus)
             else:
                 print("An error has appeared. Please make sure the data in arguments is correct")
         except ValueError:

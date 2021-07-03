@@ -57,7 +57,7 @@ def fit(x, y, max_iter=1000, alpha=0.5):
         print(costs[i])
     return thetas, houses, costs
 
-def train_model(data, headers):
+def train_model(data, headers, bonus):
     """
         1.  y = House parameter
         2.  x = data without the Index, Birthday and House parameters
@@ -82,9 +82,10 @@ def train_model(data, headers):
         for i in theta:
             f.write(str(i))
             f.write(";")
-    plt.plot(costs)
-    plt.title("Costs function")
-    plt.ylabel("Cost")
-    plt.xlabel("Number of iterations")
-    plt.show()
     f.close()
+    if bonus["print_cost_fonction"] == 1:
+        plt.plot(costs)
+        plt.title("Costs function")
+        plt.ylabel("Cost")
+        plt.xlabel("Number of iterations")
+        plt.show()
