@@ -38,6 +38,22 @@
 -   PAIR PLOT
 
 -   TRAINING
+        Multinomial Logistic Regression with gradient descent
+        -   One vs rest strategy : https://en.wikipedia.org/wiki/Multiclass_classification#One-vs.-rest :
+            Replace the "House" parameter by 4 parameters, one for each house, with values 1 or 0
+        -   Cost function: using the cross enthropy cost function (~ similar to mean squared error)
+        0.  Read the data
+        1.  Clean the data:
+            -   Removing First and Last names
+            -   Replace Best Hand by 0/1 values
+            -   Split date of birth in 3 variables: Day, Month and Year
+        2.  Normalize the data: 
+            -   Replace missing values by mean value
+            -   Min-max normalization
+        3.  Training:
+            -   Gradient descent with One-vs-rest strategy
+            -   De-normalize the coefficients
+            -   Print the coefficients
 
 -   PREDICTION
 
