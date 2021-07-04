@@ -7,7 +7,11 @@ from src_logreg_predict.predict_house import predict_house
 from src_logreg_predict.data_normalization import data_normalization
 
 """
-    GOAL: 
+    GOAL: Take data and predict the Houses.
+    1.  Read the data
+    2.  Clean and normalize the data
+    3.  Predict the values
+    4.  Print the predictions in houses.csv
 """
 if __name__ == '__main__':
     if (len(sys.argv) > 2 and sys.argv[1].lower().endswith('.csv')):

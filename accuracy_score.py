@@ -3,6 +3,13 @@ from src_describe.read_data import read_data
 import numpy as np
 from sklearn.metrics import accuracy_score
 
+"""
+    GOAL: determine the accuracy of the prediction
+    1.  Read the csv files in arguments (predictions and true values)
+    2.  Use the sklearn.metrics accuracy_score and print it
+    3.  Checks whether the score is higher than 98% or not
+"""
+
 if __name__ == '__main__':
     if (len(sys.argv) > 2 and sys.argv[1].lower().endswith('.csv') and sys.argv[2].lower().endswith('.csv')):
         try:

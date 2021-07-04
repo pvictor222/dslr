@@ -1,8 +1,7 @@
 """
-    To do : 
-    - Removing names
-    - Replace left/right ==> 1/0
-    - Date of birth : split in three variables --> day, month, year
+    1.  Removing the names
+    2.  Replacing the hands by 0 (right) or 1 (left)
+    3.  Split the date of birth in 3 variables : day, month and year
 """
 
 def data_cleaning(data):

@@ -16,14 +16,20 @@ if __name__ == '__main__':
             data = read_data(sys.argv[1])
             if (data):
                 headers = data.pop(0)
-                values_dict = get_values(headers, data)
-                values_dict = remove_missing_rows(values_dict)
-                values_dict = remove_non_num(values_dict)
-                print_pair_plot(values_dict)
+                if "Hogwarts House" in headers:
+                    values_dict = get_values(headers, data)
+                    if values_dict["Hogwarts House"][0]:
+                        values_dict = remove_missing_rows(values_dict)
+                        values_dict = remove_non_num(values_dict)
+                        print_pair_plot(values_dict)
+                    else:
+                        print('\033[93m'+"Please provide the path of the dataset with Hogwart Houses")
+                else:
+                    print('\033[93m'+"Please provide the path of the dataset with Hogwart Houses")
             else:
-                print("Please provide the path of the dataset as an argument")
+                print('\033[93m'+"Please provide the path of the dataset as an argument")
         except ValueError:
             print(ValueError)
-            print("Please provide the path of the dataset as an argument")
+            print('\033[93m'+"Please provide the path of the dataset as an argument")
     else:
-        print("Please provide the path of the dataset as an argument")
+        print('\033[93m'+"Please provide the path of the dataset as an argument")
