@@ -14,4 +14,4 @@
 
 ** BONUS **
 - (DONE)    Accuracy_score.py: programme de vérification des prédiction et calcul du accuracy score (Scikit-Learn), et < ou > à 98%
-- ()        Train: Print the cost graph if the user wants
+- (DONE)    Train: Print the cost graph if the user wants

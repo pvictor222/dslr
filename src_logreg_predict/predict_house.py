@@ -45,10 +45,10 @@ def predict_house(data, weights_dict):
     houses = list(weights_dict.keys())
     predictions = predict(houses, weights_dict, x)
     f = open("houses.csv", "w")
-    f.write("Index,Hogwarts House")
-    for i in range(1, len(predictions)):
-        f.write('\n')
+    f.write("Index,Hogwarts House\n")
+    for i in range(0, len(predictions)):
         f.write(str(i))
         f.write(',')
         f.write(predictions[i])
+        f.write('\n')
     f.close
