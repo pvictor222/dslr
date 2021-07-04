@@ -25,8 +25,8 @@ if __name__ == '__main__':
                 else:
                     print("Coefficients are invalid")
             else:
-                print("Please provide the path of the dataset and the weights of the features as arguments")
+                print('\033[93m'+"Please provide the path of the dataset and the weights of the features as arguments")
         except ValueError:
-            print("Please provide the path of the dataset and the weights of the features as arguments")
+            print('\033[93m'+"Please provide the path of the dataset and the weights of the features as arguments")
     else:
-        print("Please provide the path of the dataset and the weights of the features as arguments")
+        print('\033[93m'+"Please provide the path of the dataset and the weights of the features as arguments")

@@ -10,7 +10,7 @@ from src_describe.max_values import max_values
 from src_describe.common_values import common_values
 
 """
-    Goal: calculate all the description values
+    GOAL: calculate all the description values
     - For numerical values:
         - Count
         - Number of missing values

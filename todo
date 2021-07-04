@@ -1,6 +1,6 @@
 ** logreg_predict **
-- ()        Normalization
-- ()        Prediction
+- (OK)        Normalization
+- (KO)        Prediction
 
 ** logreg_train **
 - (OK)      Try with https://teddykoker.com/2019/06/multi-class-classification-with-logistic-regression-in-python/
@@ -12,6 +12,40 @@
 - ()        Comments
 - ()        Clean the code
 
+** DESCRIPTION **
+-   DESCRIBE
+        1. Read the data
+        2. Separate numerical headers from non-numerical headers 
+        3. Do the calculations
+        4. Print using plotly
+
+-   HISTOGRAM
+        Print histograms of all features with numerical data (except "Index") for each House:
+        1. Get the values
+        2. Split them by houses
+        3. Print the histogram
+        ==> "Arithmancy" and "Care of Magical Creatures" have a similar shape around all four houses
+
+-   SCATTER PLOT
+        Find the 2 features with the stronger relationship and print the scatter plot.
+        1. Read the data and organize it by subject
+        2. Remove missing rows
+        3. Calculate the Pearson correlations for all couple of subjects and find the one with the stronger relationship
+        4. Print the result on the terminal
+        5. Print the scatter plot
+        ==> "Defense Against the Dark Arts" and "Astronomy" are similar features
+
+-   PAIR PLOT
+
+-   TRAINING
+
+-   PREDICTION
+
+-   ACCURACY TESTING
+
 ** BONUS **
-- (DONE)    Accuracy_score.py: programme de vérification des prédiction et calcul du accuracy score (Scikit-Learn), et < ou > à 98%
-- (DONE)    Train: Print the cost graph if the user wants
+1.  Describe:
+        - Missing values
+        - Description of the non-numerical values
+2.  Train: Print the graph of the cost function (if the user wants)
+3.  Accuracy_score.py: programme de vérification des prédiction et calcul du accuracy score (Scikit-Learn), et < ou > à 98%

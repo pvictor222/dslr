@@ -16,12 +16,18 @@ if __name__ == '__main__':
             data = read_data(sys.argv[1])
             if (data):
                 headers = data.pop(0)
-                values_dict = get_values(headers, data)
-                values_by_house = split_by_house(headers, values_dict)
-                print_histogram(values_by_house)
+                if "Hogwarts House" in headers:
+                    values_dict = get_values(headers, data)
+                    if values_dict["Hogwarts House"][0]:
+                        values_by_house = split_by_house(headers, values_dict)
+                        print_histogram(values_by_house)
+                    else:
+                        print('\033[93m'+"Please provide the path of the dataset with Hogwart Houses")
+                else:
+                    print('\033[93m'+"Please provide the path of the dataset with Hogwart Houses")
             else:
-                print("Please provide the path of the dataset as an argument")
+                print('\033[93m'+"Please provide the path of the dataset as an argument")
         except ValueError:
-            print("Please provide the path of the dataset as an argument")
+            print('\033[93m'+"Please provide the path of the dataset as an argument")
     else:
-        print("Please provide the path of the dataset as an argument")
+        print('\033[93m'+"Please provide the path of the dataset as an argument")

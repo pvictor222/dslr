@@ -36,8 +36,8 @@ if __name__ == '__main__':
                 min_max_dict = data_normalization(data, headers)
                 train_model(data, headers, bonus)
             else:
-                print("An error has appeared. Please make sure the data in arguments is correct")
+                print('\033[93m'+"An error has appeared. Please make sure the data in arguments is correct")
         except ValueError:
-            print("An error has appeared. Please make sure the data in arguments is correct")
+            print('\033[93m'+"An error has appeared. Please make sure the data in arguments is correct")
     else:
-        print("An error has appeared. Please make sure the data in arguments is correct")
+        print('\033[93m'+"An error has appeared. Please make sure the data in arguments is correct")

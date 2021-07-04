@@ -12,11 +12,15 @@ if __name__ == '__main__':
                 if (len(y_pred) == len(y_true)):
                     accuracy = accuracy_score(y_true, y_pred)
                     print("The accuracy of the predictions is: " + str(round(accuracy * 100)) + "%")
+                    if accuracy < 0.98:
+                        print('\033[91m'+"The accuracy is lower than 98%")
+                    else:
+                        print('\033[92m'+"The accuracy is equal to or higher than 98%")
                 else:
                     print("The numbers of values are different")
             else:
-                print("Values are invalid 1")
+                print("Values are invalid")
         except:
-            print("Values are invalid 2")
+            print("Values are invalid")
     else:
         print("Please provide the path of the predictions and the real values")

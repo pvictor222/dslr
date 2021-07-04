@@ -22,15 +22,18 @@ if __name__ == '__main__':
             if (data):
                 headers = data.pop(0)
                 values_dict = get_values(headers, data)
-                values_dict = remove_missing_rows(values_dict)
-                pearson_cor = calc_pearson_cor(values_dict)
-                max_cor = get_max_cor(pearson_cor)
-                print("The most similar features are " + max_cor[1] + " and " + max_cor[2] + " with a pearson correlation of " + str(round(max_cor[0], 2)) + "." )
-                values_by_house = split_by_house(headers, values_dict)
-                print_scatter_plot(values_by_house, max_cor)
+                if values_dict["Hogwarts House"][0]:
+                    values_dict = remove_missing_rows(values_dict)
+                    pearson_cor = calc_pearson_cor(values_dict)
+                    max_cor = get_max_cor(pearson_cor)
+                    print('\033[94m'+"The most similar features are " + max_cor[1] + " and " + max_cor[2] + " with a pearson correlation of " + str(round(max_cor[0], 2)) + "." )
+                    values_by_house = split_by_house(headers, values_dict)
+                    print_scatter_plot(values_by_house, max_cor)
+                else:
+                    print('\033[93m'+"Please provide the path of the dataset with Hogwart Houses")
             else:
-                print("Please provide the path of the dataset as an argument")
+                print('\033[93m'+"Please provide the path of the dataset as an argument")
         except ValueError:
-            print("Please provide the path of the dataset as an argument")
+            print('\033[93m'+"Please provide the path of the dataset as an argument")
     else:
-        print("Please provide the path of the dataset as an argument")
+        print('\033[93m'+"Please provide the path of the dataset as an argument")
