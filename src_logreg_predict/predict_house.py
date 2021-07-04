@@ -1,8 +1,5 @@
 import numpy as np
 from src_logreg_train.sigmoid import sigmoid
-"""
-
-"""
 
 def predict(houses, weights_dict, x):
     """
@@ -19,17 +16,12 @@ def predict(houses, weights_dict, x):
     x = np.insert(x, 0, 1, axis=1)
     new_thetas = np.empty([len(thetas), len(thetas[0])], dtype=float)
     for i in range(len(new_thetas)):
-        for j in range(i):
+        for j in range(len(new_thetas[i])):
             new_thetas[i][j] = float(thetas[i][j])
-            print("new_thetas["+str(i)+"]["+str(j)+"] = " + str(new_thetas[i][j]))
-    print("**** NEW_THETAS ****")
-    print(new_thetas)
     predictions = [np.argmax(
         [sigmoid(np.dot(elem, theta)) for theta in new_thetas]
     ) for elem in x]
     return [houses[pred] for pred in predictions]
-
-
 
 def predict_house(data, weights_dict):
     """
